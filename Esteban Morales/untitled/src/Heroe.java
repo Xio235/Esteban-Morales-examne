@@ -1,6 +1,11 @@
 public class Heroe {
-    public enum Raza { HUMANO, MUTANTE, ALIENIGENA }
-    public enum Habilidad { TELEPATIA, SUPERFUERZA, VUELO }
+    public enum Raza {
+        HUMANO, MUTANTE, ALIENIGENA
+    }
+
+    public enum Habilidad {
+        TELEPATIA, SUPERFUERZA, VUELO
+    }
 
     private String nombre;
     private Raza raza;
@@ -32,4 +37,3 @@ public class Heroe {
         System.out.println("Habilidad: " + habilidad);
     }
 }
-

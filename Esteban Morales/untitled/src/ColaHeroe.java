@@ -15,9 +15,9 @@ public class ColaHeroe {
 
     public Heroe quitarHeroe() {
         if (!cola.isEmpty()) {
-            Heroe h = cola.poll();
-            System.out.println(h.getNombre() + " ha sido quitado de la cola.");
-            return h;
+            Heroe eliminado = cola.poll();
+            System.out.println(eliminado.getNombre() + " ha sido quitado de la cola.");
+            return eliminado;
         } else {
             System.out.println("La cola está vacía.");
             return null;
@@ -37,36 +37,51 @@ public class ColaHeroe {
         return cola.isEmpty();
     }
 
-
-
     public void verElementosDeLaCola() {
         if (!cola.isEmpty()) {
+            System.out.println("Héroes en la cola:");
             for (Heroe h : cola) {
                 h.mostrarInfo();
-                System.out.println("-------");
+                System.out.println("------");
             }
         } else {
             System.out.println("La cola está vacía.");
         }
     }
 
+    public void encolarCincoHeroes() {
+        Heroe h1 = new Heroe();
+        Heroe h2 = new Heroe("Jean Grey", Heroe.Raza.MUTANTE, 95, Heroe.Habilidad.TELEPATIA);
+        Heroe h3 = new Heroe("Hulk", Heroe.Raza.HUMANO, 98, Heroe.Habilidad.SUPERFUERZA);
+        Heroe h4 = new Heroe("Thor", Heroe.Raza.ALIENIGENA, 96, Heroe.Habilidad.VUELO);
+        Heroe h5 = new Heroe("Rogue", Heroe.Raza.MUTANTE, 89, Heroe.Habilidad.SUPERFUERZA);
+
+        añadirHeroe(h1);
+        añadirHeroe(h2);
+        añadirHeroe(h3);
+        añadirHeroe(h4);
+        añadirHeroe(h5);
+    }
+
     public static void main(String[] args) {
-        Heroe h1 = new Heroe("Esteban", Heroe.Raza.MUTANTE, 95, Heroe.Habilidad.TELEPATIA);
-        Heroe h2 = new Heroe("Superman", Heroe.Raza.ALIENIGENA, 100, Heroe.Habilidad.VUELO);
-        Heroe h3 = new Heroe();
-
         ColaHeroe cola = new ColaHeroe();
-        cola.añadirHeroe(h1);
-        cola.añadirHeroe(h2);
-        cola.añadirHeroe(h3);
 
+        cola.encolarCincoHeroes();
+
+        System.out.println("\n--- Héroes en la cola ---");
         cola.verElementosDeLaCola();
 
-        System.out.println("\nPrimer héroe: " + cola.verPrimerHeroe().getNombre());
+        Heroe primero = cola.verPrimerHeroe();
+        if (primero != null) {
+            System.out.println("\nPrimer héroe en la cola: " + primero.getNombre());
+        }
 
+        System.out.println("\n--- Quitando un héroe ---");
         cola.quitarHeroe();
-        System.out.println("\nDespués de quitar un héroe:");
+
+        System.out.println("\n--- Héroes restantes ---");
         cola.verElementosDeLaCola();
+
+        System.out.println("\n¿La cola está vacía? " + cola.estaVacia());
     }
 }
-
