@@ -37,11 +37,13 @@ public class ColaHeroe {
         return cola.isEmpty();
     }
 
+
+
     public void verElementosDeLaCola() {
         if (!cola.isEmpty()) {
             for (Heroe h : cola) {
                 h.mostrarInfo();
-                System.out.println("------");
+                System.out.println("-------");
             }
         } else {
             System.out.println("La cola está vacía.");
@@ -49,9 +51,9 @@ public class ColaHeroe {
     }
 
     public static void main(String[] args) {
-        Heroe h1 = new Heroe("Jean Grey", Heroe.Raza.MUTANTE, 95, Heroe.Habilidad.TELEPATIA);
+        Heroe h1 = new Heroe("Esteban", Heroe.Raza.MUTANTE, 95, Heroe.Habilidad.TELEPATIA);
         Heroe h2 = new Heroe("Superman", Heroe.Raza.ALIENIGENA, 100, Heroe.Habilidad.VUELO);
-        Heroe h3 = new Heroe(); // Constructor por defecto
+        Heroe h3 = new Heroe();
 
         ColaHeroe cola = new ColaHeroe();
         cola.añadirHeroe(h1);
@@ -67,3 +69,4 @@ public class ColaHeroe {
         cola.verElementosDeLaCola();
     }
 }
+

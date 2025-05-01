@@ -8,7 +8,7 @@ public class Heroe {
     private Habilidad habilidad;
 
     public Heroe() {
-        this.nombre = "Spider-Man";
+        this.nombre = "Batman";
         this.raza = Raza.HUMANO;
         this.nivelPoder = 85;
         this.habilidad = Habilidad.SUPERFUERZA;
@@ -32,5 +32,4 @@ public class Heroe {
         System.out.println("Habilidad: " + habilidad);
     }
 }
-
 
